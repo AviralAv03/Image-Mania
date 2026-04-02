@@ -12,7 +12,7 @@ Before the timer starts, you need to configure your local terminal to access the
 
 **1. Install the GitHub CLI:**
 ~~~powershell
-winget install --id GitHub.client
+winget install --id GitHub.cli
 ~~~
 
 **2. Authenticate your account:**
