@@ -53,7 +53,7 @@ You will build your stack progressively. Each phase must be verified by a judge 
 
 ### Phase 0: The Utility Belt
 * **Filebrowser :** Deploy a web-based file manager to easily handle your server's data.
-  * **Objective:** Map a persistent volume so you can visually browse the files on your server. Log in using the default `admin` / `admin` credentials and successfully change the password. Expose the UI on port **8084**.
+  * **Objective:** Expose the UI on port **8084**.
 * **IT-Tools :** Spin up the ultimate collection of handy developer utilities.
   * **Objective:** Deploy the container successfully and expose the web UI on port **8082**.
 * **Stirling-PDF :** Deploy a powerful, locally hosted PDF manipulation tool.
