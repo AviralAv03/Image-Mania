@@ -51,6 +51,14 @@ gh codespace ports visibility 3000:public 3001:public 8080:public 8081:public 80
 
 You will build your stack progressively. Each phase must be verified by a judge before you move on. Use the terminal text editors to write your `docker-compose.yml` files. 
 
+### Phase 0: The Utility Belt
+* **Filebrowser :** Deploy a web-based file manager to easily handle your server's data.
+  * **Objective:** Map a persistent volume so you can visually browse the files on your server. Log in using the default `admin` / `admin` credentials and successfully change the password. Expose the UI on port **8084**.
+* **IT-Tools :** Spin up the ultimate collection of handy developer utilities.
+  * **Objective:** Deploy the container successfully and expose the web UI on port **8082**.
+* **Stirling-PDF :** Deploy a powerful, locally hosted PDF manipulation tool.
+  * **Objective:** Spin it up and configure i. Expose the UI on port **8083**.
+
 ### Phase 1: The Gateway & Dashboard
 * **Pi-hole :** Spin up the infamous network-wide ad blocker. 
   * **Objective:** You will encounter port conflicts (specifically on ports 80 and 53). Resolve them and successfully expose the Web UI on port **8080**. Use the default empty/random password generation as noted in their GitHub docs to log in.
