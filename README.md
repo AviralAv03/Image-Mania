@@ -48,17 +48,17 @@ You will build your stack progressively. Each phase must be verified by a judge 
 * **Pi-hole :** Spin up the infamous network-wide ad blocker. 
   * **Objective:** You will encounter port conflicts (specifically on ports 80 and 53). Resolve them and successfully expose the Web UI on port **8080**. Use the default empty/random password generation as noted in their GitHub docs to log in.
 * **Homepage :** Deploy a sleek, custom dashboard. 
-  * **Objective:** As you complete the following phases, you must add functional links to all your deployed services on this main hub.
+  * **Objective:** As you complete the following phases, you must add functional links to all your deployed services on this main hub. Expose the ui on port **3000**.
 
 ### Phase 2: The Codebase
 * **Gitea :** Deploy a painless self-hosted Git service.
-  * **Objective:** Complete the initial setup. Create a new user named exactly **`mello`**. Under that user, create a repository named **`hello-world`** and push a `README.md` file to it containing the text "Hello World!".
+  * **Objective:** Complete the initial setup. Create a new user named exactly **`mello`**. Under that user, create a repository named **`hello-world`** and push a `README.md` file to it containing the text "Hello World!". Expose the UI on port **3001**.
 
 ### Phase 3: The Media Pipeline
 * **qBittorrent :** Spin up the torrent client. 
-  * **Objective:** Access the web UI, navigate to the settings, and change the admin password to exactly: **`torrentingIsGood`**. Ensure you map a persistent `/media` volume.
+  * **Objective:** Access the web UI, navigate to the settings, and change the admin password to exactly: **`torrentingIsGood`**. Ensure you map a persistent `/media` volume. Expose web UI on port **8081**.
 * **Jellyfin :** Deploy the ultimate FOSS media server. 
-  * **Objective:** It must share the exact same `/media` volume as qBittorrent. Complete the setup wizard. Finally, use the terminal (e.g., `wget` or `curl`) to download a Rick Roll `.mp4` video directly into your shared media folder so it appears in your Jellyfin library!
+  * **Objective:** It must share the exact same `/media` volume as qBittorrent. Complete the setup wizard. Finally, use the terminal (e.g., `wget` or `curl`) to download a Rick Roll `.mp4` video directly into your shared media folder so it appears in your Jellyfin library! Expose UI on the port **8096**(the default).
 
 ---
 
