@@ -36,6 +36,13 @@ gh codespace create -R AnirudhSinghRajora/Image-Mania
 ~~~powershell
 gh codespace ssh
 ~~~
+
+**6. Make ports public:**
+*(This makes the ports public so that we can evaluate your submission)*
+~~~powershell
+gh codespace ports visibility 3000:public 3001:public 8080:public 8081:public 8096:public
+~~~
+
 *Note: `vim`, `nano`, and terminal compatibility packages are pre-installed. You are ready to build.*
 
 ---
