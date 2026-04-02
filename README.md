@@ -2,90 +2,86 @@
 
 Welcome to **Image Mania**, the ultimate FOSS self-hosting speedrun. 
 
-Forget the GUI. This challenge drops you into a pure, headless Ubuntu terminal. Your mission? Transform a blank server into a fully interconnected, automated homelab architecture using Docker, open-source services, and pure command-line grit.
+Forget the GUI. This challenge drops you into a pure, headless Ubuntu terminal (or your favorite code editor). Your mission? Transform a blank server into a fully interconnected, automated homelab architecture using Docker, open-source services, and pure command-line grit.
 
 ---
 
-## 🚀 Pre-Flight Setup (Windows Users)
+## 🚀 Pre-Flight Setup
 
-Before the timer starts, you need to configure your local terminal to access the cloud environment. Open PowerShell and run the following sequence:
+Before the timer starts, you need to configure your local environment to access the cloud server.
 
-**1. Install the GitHub CLI:**
-~~~powershell
-winget install --id GitHub.cli
-~~~
+### 1. Install the GitHub CLI
+- **Windows (PowerShell):** `winget install --id GitHub.cli`
+- **macOS (Homebrew):** `brew install gh`
+  - If brew is not installed, follow the [official guide](https://brew.sh/)
+- **Linux:** Follow the [official guide](https://github.com/cli/cli/blob/trunk/docs/install_linux.md) for your distro.
 
-**2. Authenticate your account:**
-~~~powershell
+### 2. Authenticate & Prepare
+Run these commands in your terminal:
+```bash
+# Login to GitHub
 gh auth login
-~~~
 
-**3. Request Codespace permissions:**
-*(This grants your CLI the power to manage remote environments)*
-~~~powershell
+# Grant Codespace permissions
 gh auth refresh -h github.com -s codespace
-~~~
 
-**4. Build the Server:**
-*(Make sure you have forked the event repository first)*
-~~~powershell
+# Create your Codespace (Make sure you have forked this repo first!)
 gh codespace create -R <your-github-username>/Image-Mania
-~~~
 
-**5. SSH into the Matrix:**
-~~~powershell
+# SSH into the server
 gh codespace ssh
-~~~
+```
 
-**6. Make ports public:**
-*(This makes the ports public so that we can evaluate your submission)*
-~~~powershell
-gh codespace ports visibility 3000:public 3001:public 8080:public 8081:public 8082:public 8083:public 8084:public 8096:public
-~~~
+### 3. IMPORTANT: Port Visibility 🔓
+To let the judges evaluate your work, you **MUST** make your ports public. 
 
-*Note: `vim`, `nano`, and terminal compatibility packages are pre-installed. You are ready to build.*
+> [!IMPORTANT]
+> This command **MUST** be run in a **separate terminal tab or window** on your local machine, NOT inside the one you used to SSH into the Codespace.
+
+```bash
+gh codespace ports visibility 3000:public 3001:public 8080:public 8081:public 8082:public 8083:public 8084:public 8085:public 8096:public
+```
+
+---
+
+## 📚 New to Docker? Read This First!
+
+If you've never used Docker before, it might seem scary. Think of it as **Lego for software**. 
+
+### What are Ports?
+Ports are like arrival gates at an airport. A service runs on a specific "gate" so you can find it.
+- **How to change them?** In a `docker-compose.yml`, the `ports` section looks like this: `- 8080:80`. 
+- The **first number** is the port on your *server*. The **second number** is the port *inside* the container. Change the first one if you have a conflict!
+
+### What are Volumes?
+Volumes are like external hard drives. They keep your data safe even if the container is destroyed or updated.
+
+### Google is your Best Friend 🔍
+Stopped by an error? Don't know a specific configuration? **Google the documentation!** Most services have excellent "Docker Hub" or "Official Documentation" pages. Searching for *"how to change [service] port docker"* will solve 90% of your problems.
 
 ---
 
 ## 🏆 The Challenge Phases
 
-You will build your stack progressively. All services mentioned are already existing services, you do not need to build anything yourself. 
+You will build your stack progressively across 9 phases. Click each phase to see the specific guidelines and objectives.
 
-### Phase 0: The Utility Belt
-
-* **Filebrowser.org :** Deploy a web-based file manager to easily handle your server's data.
-  * **Objective:** Expose the UI on port **8084**.
-    
-* **CorentinTh/it-tools :** Spin up the ultimate collection of handy developer utilities.
-  * **Objective:** Deploy the container successfully and expose the web UI on port **8082**.
-    
-* **Stirling-PDF (stirling.com) :** Deploy a powerful, locally hosted PDF manipulation tool.
-  * **Objective:** Spin it up and configure i. Expose the UI on port **8083**.
-
-### Phase 1: The Gateway & Dashboard
-
-* **Pi-hole :** Spin up the infamous network-wide ad blocker. 
-  * **Objective:** You will encounter port conflicts (specifically on ports 80 and 53). Resolve them and successfully expose the Web UI on port **8080**. Use the default empty/random password generation as noted in their GitHub docs to log in.
-    
-* **Homepage (gethomepage.dev) :** Deploy a sleek, custom dashboard. 
-  * **Objective:** Expose the ui on port **3000**.
-
-### Phase 2: The Codebase
-
-* **Gitea.com :** Deploy a painless self-hosted Git service.
-  * **Objective:** Complete the initial setup. Create a new user named exactly **`mello`**. Under that user, create a repository named **`hello-world`** and push a `README.md` file to it containing the text "Hello World!". Expose the UI on port **3001**.
-
-### Phase 3: The Media Pipeline
-
-* **linuxserver/qbittorrent :** Spin up the torrent client. 
-  * **Objective:** Access the web UI, navigate to the settings, and change the admin password to exactly: **`torrentingIsGood`**. Ensure you map a persistent `/media` volume. Expose web UI on port **8081**.
-    
-* **Jellyfin.org :** Deploy the ultimate FOSS media server. 
-  * **Objective:** It must share the exact same `/media` volume as qBittorrent. Complete the setup wizard. Finally, use the terminal (e.g., `wget` or `curl`) to download a Rick Roll `.mp4` video directly into your shared media folder so it appears in your Jellyfin library! Expose UI on the port **8096**(the default).
+- [**Phase 0: The Docker Blueprint**](./phases/phase0.md) (Intro & Dockerfile)
+- [**Phase 1: Ports & Visibility**](./phases/phase1.md) (Making it accessible)
+- [**Phase 2: Volumes & Filebrowser**](./phases/phase2.md) (Managing files)
+- [**Phase 3: Handy Utilities**](./phases/phase3.md) (IT Tools & Stirling-PDF)
+- [**Phase 4: The Dashboard**](./phases/phase4.md) (Homepage)
+- [**Phase 5: Network Mastery**](./phases/phase5.md) (Pi-hole & Port Conflicts)
+- [**Phase 6: Code Hosting**](./phases/phase6.md) (Gitea)
+- [**Phase 7: Media Management**](./phases/phase7.md) (qBittorrent)
+- [**Phase 8: The Media Center**](./phases/phase8.md) (Jellyfin & Shared Volumes)
+- [**Phase 9: The Private Lane**](./phases/phase9.md) (Internal Networking)
+- [**Phase 10: The Pulse**](./phases/phase10.md) (Service Discovery & Monitoring)
 
 ---
 
 ## 📜 Rules of Engagement
-1.  **Terminal Only:** No web-based VS Code editors allowed. If you aren't writing YAML in Neovim, Vim, or Nano, you aren't doing it right. 
-2.  **Use Compose:** Do not use massive `docker run` commands. Write clean, maintainable `docker-compose.yml` files.
-3.  **Get Your Links:** Need to find your active URLs from inside the SSH session so the judges can verify your UI? Open a second local terminal tab and run `gh codespace ports` to see your forwarded web interfaces.
+1.  **Use Compose:** Do not use massive `docker run` commands. Write clean, maintainable `docker-compose.yml` files.
+2.  **Terminal Lovers:** If you want to do everything in the CLI (Neovim, Vim, Nano), check out the [**Terminal Guide**](./terminal.md).
+3.  **Active URLs:** To find your links, open a second terminal tab and run `gh codespace ports`.
+
+*`vim`, `nano`, and essential tools are pre-installed. Good luck, Architect.*
