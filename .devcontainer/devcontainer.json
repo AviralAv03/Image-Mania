@@ -1,5 +1,5 @@
 {
-  "name": "FOSS Homelab Challenge Node",
+  "name": "Image Mania",
   "image": "mcr.microsoft.com/devcontainers/base:jammy",
   
   "features": {
