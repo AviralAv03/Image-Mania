@@ -51,6 +51,7 @@
   },
 
   "remoteUser": "vscode",
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y vim nano kitty-terminfo && echo 'Welcome to the Homelab Speedrun!' > ~/welcome.txt"
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y vim nano kitty-terminfo && echo 'Welcome to the Homelab Speedrun!' > ~/welcome.txt",
+  "postStartCommand": "gh codespace ports visibility 3000:public 3001:public 8080:public 8081:public 8096:public -c $CODESPACE_NAME || true"
   
 }
