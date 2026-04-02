@@ -29,7 +29,7 @@ gh auth refresh -h github.com -s codespace
 **4. Build the Server:**
 *(Make sure you have forked the event repository first)*
 ~~~powershell
-gh codespace create -R AnirudhSinghRajora/Image-Mania
+gh codespace create -R <your-github-username>/Image-Mania
 ~~~
 
 **5. SSH into the Matrix:**
