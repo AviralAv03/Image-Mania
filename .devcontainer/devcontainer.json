@@ -1,0 +1,45 @@
+{
+  "name": "FOSS Homelab Challenge Node",
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "enableNonRootDocker": "true",
+      "moby": "true"
+    }
+  },
+
+  "forwardPorts": [80, 81, 8080, 8096],
+  
+  "portsAttributes": {
+    "8096": {
+      "label": "Jellyfin Web UI",
+      "onAutoForward": "notify"
+    },
+    "80": {
+      "label": "Reverse Proxy (HTTP)",
+      "onAutoForward": "notify"
+    },
+    "81": {
+      "label": "Nginx Proxy Manager UI",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml"
+      ]
+    }
+  },
+
+  "remoteUser": "vscode",
+  
+  "postCreateCommand": "sudo apt-get update && echo 'Welcome to the Homelab Speedrun!' > ~/welcome.txt"
+}
