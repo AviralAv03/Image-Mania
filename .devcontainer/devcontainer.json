@@ -13,7 +13,7 @@
     }
   },
 
-  "forwardPorts": [3000, 3001, 8080, 8081, 8096],
+  "forwardPorts": [3000, 3001, 8080, 8081, 8082, 8083, 8084, 8096],
   
   "portsAttributes": {
     "3000": {
@@ -30,6 +30,18 @@
     },
     "8081": {
       "label": "qBittorrent Web UI",
+      "onAutoForward": "notify"
+    },
+    "8082": {
+      "label": "IT-Tools",
+      "onAutoForward": "notify"
+    },
+    "8083": {
+      "label": "Stirling-PDF",
+      "onAutoForward": "notify"
+    },
+    "8084": {
+      "label": "Filebrowser",
       "onAutoForward": "notify"
     },
     "8096": {
