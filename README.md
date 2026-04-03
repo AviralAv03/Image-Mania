@@ -85,17 +85,6 @@ You will build your stack progressively across 9 phases. Click each phase to see
 
 ---
 
-## 🛠️ The Judge's Tool (`check.sh`)
-Want to know if you've done it right? Use the built-in validation script!
-1. In your server terminal, run: `bash check.sh`
-2. Select the phase you want to test.
-3. Paste the URL of your service (find it using `gh codespace ports`).
-4. See if you get the ✅ SUCCESS message!
-
----
-
----
-
 ## 📜 Rules of Engagement
 1.  **Use Compose:** Do not use massive `docker run` commands. Write clean, maintainable `docker-compose.yml` files.
 2.  **Terminal Lovers:** If you want to do everything in the CLI (Neovim, Vim, Nano), check out the [**Terminal Guide**](./terminal.md).
