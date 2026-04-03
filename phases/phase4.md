@@ -12,7 +12,7 @@ Homepage is a sleek, modern dashboard that displays all your services in one pla
 ### 📝 Challenge:
 Customizing a dashboard requires editing YAML configuration files. You will need to link your filebrowser, it-tools, and stirling-pdf into the dashboard.
 
-Check the [Homepage Documentation](https://gethomepage.dev/latest/configs/services/) for how to add services.
+Check the [Homepage Documentation](https://gethomepage.dev/configs/) for how to add services.
 
 ---
 **Next Step:** [Phase 5: Network Mastery](./phase5.md)
