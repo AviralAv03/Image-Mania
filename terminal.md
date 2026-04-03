@@ -19,9 +19,11 @@ For those who believe the GUI is for the weak. This guide contains the "Pro Tips
 | `docker stats` | View CPU/RAM usage |
 | `docker exec -it [name] bash` | Open a shell inside a container |
 
-## 🔗 Port Management (The CLI way)
-To see your active port forwards from within your **local terminal** (NOT the SSH one):
+## 🔗 Port Management
+Since the GitHub CLI is pre-installed on the server, you can manage and view your ports directly from the SSH session:
+
 ```bash
+# List all ports and see if they are public
 gh codespace ports
 ```
 

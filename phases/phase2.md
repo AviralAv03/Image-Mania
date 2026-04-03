@@ -14,7 +14,6 @@ Let's deploy a web-based file manager to help you manage your server's files wit
 1. Create a folder: `mkdir filebrowser`
 2. Create a `docker-compose.yml` file:
 ```yaml
-version: '3'
 services:
   filebrowser:
     image: filebrowser/filebrowser:latest

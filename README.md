@@ -33,11 +33,17 @@ gh codespace ssh
 ```
 
 ### 3. IMPORTANT: Port Visibility 🔓
-To let the judges evaluate your work, you **MUST** make your ports public. 
+Your Codespace is configured to automatically make your ports public when you start them.
 
-> [!IMPORTANT]
-> This command **MUST** be run in a **separate terminal tab or window** on your local machine, NOT inside the one you used to SSH into the Codespace.
+#### 🔎 Verification
+To check if your ports are open, run this command **directly in your server terminal**:
+```bash
+gh codespace ports
+```
+Look at the **VISIBILITY** column. If it says `public`, you are all set!
 
+#### 🛠️ Manual Fallback
+If for some reason a port is listed as `private`, you can manually make it public with this command (can be run in the same terminal):
 ```bash
 gh codespace ports visibility 3000:public 3001:public 3002:public 8080:public 8081:public 8082:public 8083:public 8084:public 8085:public 8096:public
 ```
@@ -76,6 +82,17 @@ You will build your stack progressively across 9 phases. Click each phase to see
 - [**Phase 8: The Media Center**](./phases/phase8.md) (Jellyfin & Shared Volumes)
 - [**Phase 9: The Private Lane**](./phases/phase9.md) (Internal Networking)
 - [**Phase 10: The Pulse**](./phases/phase10.md) (Service Discovery & Monitoring)
+
+---
+
+## 🛠️ The Judge's Tool (`check.sh`)
+Want to know if you've done it right? Use the built-in validation script!
+1. In your server terminal, run: `bash check.sh`
+2. Select the phase you want to test.
+3. Paste the URL of your service (find it using `gh codespace ports`).
+4. See if you get the ✅ SUCCESS message!
+
+---
 
 ---
 
