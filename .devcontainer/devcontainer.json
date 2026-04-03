@@ -9,6 +9,9 @@
     },
     "ghcr.io/devcontainers/features/sshd:1": {
       "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
     }
   },
   "forwardPorts": [
@@ -78,5 +81,6 @@
   },
   "remoteUser": "vscode",
   "postCreateCommand": "sudo apt-get update && sudo apt-get install -y vim nano kitty-terminfo && echo 'Welcome to the Homelab Speedrun!' > ~/welcome.txt",
-  "postStartCommand": "gh codespace ports visibility 3000:public 3001:public 3002:public 8080:public 8081:public 8082:public 8083:public 8084:public 8085:public 8096:public -c $CODESPACE_NAME || true"
+  "postStartCommand": "gh codespace ports visibility 3000:public 3001:public 3002:public 8080:public 8081:public 8082:public 8083:public 8084:public 8085:public 8096:public -c $CODESPACE_NAME || true",
+  "postAttachCommand": "gh codespace ports visibility 3000:public 3001:public 3002:public 8080:public 8081:public 8082:public 8083:public 8084:public 8085:public 8096:public -c $CODESPACE_NAME || true"
 }
