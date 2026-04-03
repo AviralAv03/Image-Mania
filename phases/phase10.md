@@ -12,7 +12,7 @@ In Phase 9, Gitea and Postgres shared a private network. But what if we want a *
 ### 📊 Uptime Kuma
 Deploy the legendary **Uptime Kuma** to monitor your stack.
 
-1. **Port**: Expose the UI on port **3002**.
+1. **Objective**: Expose the UI on port **3002**.
 2. **Network**: Put it on the `homelab-net` network.
 
 ```yaml

@@ -55,7 +55,7 @@ Do **NOT** run these status/port commands inside the same terminal where you are
 
 ```bash
 # This command makes multiple ports public at once
-gh codespace ports visibility 3000:public 3001:public 8080:public 8081:public 8082:public 8083:public 8084:public 8085:public 8096:public
+gh codespace ports visibility 3000:public 3001:public 3002:public 8080:public 8081:public 8082:public 8083:public 8084:public 8085:public 8096:public
 ```
 
 ## 🔍 How to find your URL?

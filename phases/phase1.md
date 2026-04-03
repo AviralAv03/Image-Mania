@@ -22,7 +22,12 @@ services:
 ```
 
 ### 🚀 Running with Compose
-To start your service, simply run:
+Before we start our new server, we need to stop the one from Phase 0 to avoid a port conflict:
+```bash
+docker stop hello-phase0 && docker rm hello-phase0
+```
+
+Now, start your new Compose service:
 ```bash
 docker compose up -d
 ```

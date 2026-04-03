@@ -39,7 +39,7 @@ To let the judges evaluate your work, you **MUST** make your ports public.
 > This command **MUST** be run in a **separate terminal tab or window** on your local machine, NOT inside the one you used to SSH into the Codespace.
 
 ```bash
-gh codespace ports visibility 3000:public 3001:public 8080:public 8081:public 8082:public 8083:public 8084:public 8085:public 8096:public
+gh codespace ports visibility 3000:public 3001:public 3002:public 8080:public 8081:public 8082:public 8083:public 8084:public 8085:public 8096:public
 ```
 
 ---
