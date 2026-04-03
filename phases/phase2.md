@@ -22,8 +22,6 @@ services:
       - 8084:80
     volumes:
       - ./data:/srv
-      - ./database.db:/database.db
-      - ./settings.json:/config/settings.json
     restart: unless-stopped
 ```
 
